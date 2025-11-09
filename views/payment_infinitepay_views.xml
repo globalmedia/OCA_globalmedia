@@ -1,0 +1,25 @@
+<odoo>
+  <!-- Add acquirer fields to acquirer form -->
+  <record id="view_acquirer_infinitepay_form" model="ir.ui.view">
+    <field name="name">payment.acquirer.infinitepay.form</field>
+    <field name="model">payment.acquirer</field>
+    <field name="inherit_id" ref="payment.view_acquirer_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//group[@name='credentials']" position="inside">
+        <group string="InfinitePay Credentials">
+          <field name="infinitepay_handle"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- Filter to find sale orders with issues -->
+  <record id="sale_order_infinitepay_search" model="ir.ui.view">
+    <field name="name">sale.order.infinitepay.search</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_orders_filter"/>
+    <field name="arch" type="xml">
+      <filter string="InfinitePay Issues" name="infinitepay_issue" domain="[('infinitepay_issue','=',True)]"/>
+    </field>
+  </record>
+</odoo>

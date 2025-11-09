@@ -1,5 +1,4 @@
 <odoo>
-  <!-- Add a payment method radio to website checkout -->
   <template id="infinitepay_payment_template" inherit_id="website_sale.payment">
     <xpath expr="//div[contains(@class,'payment_method')][1]" position="before">
       <div class="payment_method">
@@ -11,7 +10,6 @@
     </xpath>
   </template>
 
-  <!-- JS in checkout: intercept submit and redirect if infinitepay selected -->
   <template id="infinitepay_payment_js" inherit_id="website_sale.checkout">
     <xpath expr="//form[@id='checkout_form']" position="inside">
       <script type="text/javascript">

@@ -1,6 +1,6 @@
 {
     'name': 'Payment InfinitePay (acquirer)',
-    'version': '1.0.8',
+    'version': '1.0.9',
     'category': 'Accounting/Payment',
     'summary': 'InfinitePay Checkout integration as payment acquirer',
     'author': 'GlobalMedia',

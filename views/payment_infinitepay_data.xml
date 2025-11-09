@@ -1,8 +1,0 @@
-<odoo>
-  <record id="payment_acquirer_infinitepay" model="payment.acquirer">
-    <field name="name">InfinitePay</field>
-    <field name="provider">infinitepay</field>
-    <field name="state">test</field>
-    <field name="company_id" eval="False"/>
-  </record>
-</odoo>

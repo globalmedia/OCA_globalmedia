@@ -127,12 +127,12 @@ class InfinitePayController(http.Controller):
                     tx.sudo().write({'state': 'error'})
                     tx.sudo().message_post(
                         subject="InfinitePay: valor divergente",
-                        body=f"Valor da transação no Odoo: {tx.amount} {tx.currency_id.name if tx.currency_id else ''}. Valor retornado pela InfinitePay: {api_amount}."
+                        body=f"Valor da transação: {tx.amount} {tx.currency_id.name if tx.currency_id else ''}. Valor retornado pela InfinitePay: {api_amount}."
                     )
                     if order:
                         order.sudo().message_post(
                             subject="InfinitePay: valor divergente",
-                            body=f"Valor do pedido no Odoo: {order.amount_total}. Valor informado pela InfinitePay: {api_amount}."
+                            body=f"Valor do pedido: {order.amount_total}. Valor informado pela InfinitePay: {api_amount}."
                         )
                         order.sudo().write({'infinitepay_issue': True})
                     return request.render('payment.payment_error', {'error': _('Valor do pagamento divergente.')})
@@ -153,12 +153,12 @@ class InfinitePayController(http.Controller):
                     tx.sudo().write({'state': 'error'})
                     tx.sudo().message_post(
                         subject="InfinitePay: moeda incompatível",
-                        body=f"Moeda no Odoo: {tx.currency_id.name if tx.currency_id else 'n/a'}. Moeda retornada pela InfinitePay: {resp_currency}."
+                        body=f"Moeda: {tx.currency_id.name if tx.currency_id else 'n/a'}. Moeda retornada pela InfinitePay: {resp_currency}."
                     )
                     if order:
                         order.sudo().message_post(
                             subject="InfinitePay: moeda incompatível",
-                            body=f"Moeda do pedido no Odoo: {(order.pricelist.currency_id.name if order.pricelist and order.pricelist.currency_id else 'n/a')}. Moeda retornada: {resp_currency}."
+                            body=f"Moeda do pedido: {(order.pricelist.currency_id.name if order.pricelist and order.pricelist.currency_id else 'n/a')}. Moeda retornada: {resp_currency}."
                         )
                         order.sudo().write({'infinitepay_issue': True})
                     return request.render('payment.payment_error', {'error': _('Moeda incompatível.')})

@@ -1,6 +1,6 @@
 {
     'name': 'Pagamento InfinitePay',
-    'version': '1.0.3',
+    'version': '1.0.4',
     'category': 'Website',
     'summary': 'Integração com InfinitePay Checkout',
     'author': 'GlobalMedia',

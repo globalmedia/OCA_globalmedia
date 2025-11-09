@@ -1,0 +1,11 @@
+<odoo>
+  <record id="ir_cron_infinitepay_verificacao" model="ir.cron">
+    <field name="name">Verificar Pagamentos InfinitePay</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="state">code</field>
+    <field name="code">model._verificar_pagamentos_infinitepay()</field>
+    <field name="interval_number">5</field>
+    <field name="interval_type">minutes</field>
+    <field name="active">True</field>
+  </record>
+</odoo>

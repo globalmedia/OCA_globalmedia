@@ -5,9 +5,4 @@ class SaleOrder(models.Model):
 
     infinitepay_pending = fields.Boolean(string='InfinitePay Pending', default=False)
     transaction_nsu = fields.Char(string='InfinitePay Transaction NSU')
-
-    def action_infinitepay_mark_pending(self, transaction_nsu=None):
-        for order in self:
-            order.infinitepay_pending = True
-            if transaction_nsu:
-                order.transaction_nsu = transaction_nsu
+    infinitepay_issue = fields.Boolean(string='InfinitePay Issue', default=False)

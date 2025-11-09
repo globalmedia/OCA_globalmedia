@@ -1,5 +1,4 @@
 <odoo>
-  <!-- Add acquirer fields to acquirer form -->
   <record id="view_acquirer_infinitepay_form" model="ir.ui.view">
     <field name="name">payment.acquirer.infinitepay.form</field>
     <field name="model">payment.acquirer</field>
@@ -13,7 +12,6 @@
     </field>
   </record>
 
-  <!-- Filter to find sale orders with issues -->
   <record id="sale_order_infinitepay_search" model="ir.ui.view">
     <field name="name">sale.order.infinitepay.search</field>
     <field name="model">sale.order</field>

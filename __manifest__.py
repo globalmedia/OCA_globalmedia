@@ -1,6 +1,6 @@
 {
     'name': 'Payment InfinitePay (acquirer)',
-    'version': '1.0.7',
+    'version': '1.0.8',
     'category': 'Accounting/Payment',
     'summary': 'InfinitePay Checkout integration as payment acquirer',
     'author': 'GlobalMedia',
@@ -13,5 +13,5 @@
     ],
     'installable': True,
     'application': False,
-    'license': 'Apache License 2.0',
+    'license': 'Other OSI approved licence',
 }

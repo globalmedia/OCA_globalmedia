@@ -4,10 +4,12 @@
     <field name="model">res.config.settings</field>
     <field name="inherit_id" ref="base.res_config_settings_view_form"/>
     <field name="arch" type="xml">
-      <xpath expr="//div[@id='settings']" position="inside">
-        <div class="col-12 col-lg-6">
-          <label for="infinitepay_handle"/>
-          <field name="infinitepay_handle"/>
+      <xpath expr="//div[hasclass('o_setting_container')]" position="inside">
+        <div class="row mt16 o_setting_box">
+          <div class="col-12 col-lg-6">
+            <label for="infinitepay_handle"/>
+            <field name="infinitepay_handle"/>
+          </div>
         </div>
       </xpath>
     </field>

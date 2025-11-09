@@ -1,0 +1,7 @@
+<odoo>
+  <template id="assets_frontend" inherit_id="web.assets_frontend" name="infinitepay assets">
+    <xpath expr="." position="inside">
+      <!-- place to include custom css/js if needed -->
+    </xpath>
+  </template>
+</odoo>

@@ -32,7 +32,6 @@ class PaymentAcquirerInfinitepay(models.Model):
             'redirect_url': tx_values.get('return_url'),
         }
 
-        # Add optional customer fields if present
         for k in ('customer_name', 'customer_email', 'customer_cellphone', 'address_cep', 'address_number', 'address_complement'):
             if tx_values.get(k):
                 params[k] = tx_values.get(k)

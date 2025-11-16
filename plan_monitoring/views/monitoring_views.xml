@@ -1,0 +1,28 @@
+<!-- plan_monitoring/views/monitoring_views.xml -->
+<odoo>
+  <record id="view_saas_usage_form" model="ir.ui.view">
+    <field name="name">saas.usage.form</field>
+    <field name="model">saas.usage</field>
+    <field name="arch" type="xml">
+      <form string="Uso da Instância">
+        <sheet>
+          <group>
+            <field name="users_active" readonly="1"/>
+            <field name="storage_mb" readonly="1"/>
+            <field name="invoices_month" readonly="1"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_saas_usage" model="ir.actions.act_window">
+    <field name="name">Uso da Instância</field>
+    <field name="res_model">saas.usage</field>
+    <field name="view_mode">form</field>
+    <field name="target">current</field>
+  </record>
+
+  <menuitem id="menu_saas_root" name="SaaS" sequence="10"/>
+  <menuitem id="menu_saas_usage" name="Uso" parent="menu_saas_root" action="action_saas_usage" sequence="30"/>
+</odoo>

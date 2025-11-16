@@ -1,0 +1,3 @@
+# plan_upgrade_wizard/security/ir.model.access.csv
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_plan_upgrade_wizard_user,access_plan_upgrade_wizard_user,model_plan_upgrade_wizard,base.group_user,1,0,0,0

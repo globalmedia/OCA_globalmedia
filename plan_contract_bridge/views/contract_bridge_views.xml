@@ -1,0 +1,15 @@
+<!-- plan_contract_bridge/views/contract_bridge_views.xml -->
+<odoo>
+  <record id="view_contract_form_inherit_plan" model="ir.ui.view">
+    <field name="name">contract.contract.form.inherit.plan</field>
+    <field name="model">contract.contract</field>
+    <field name="inherit_id" ref="contract.contract_contract_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet" position="inside">
+        <group string="Plano SaaS">
+          <field name="saas_plan_id"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+</odoo>

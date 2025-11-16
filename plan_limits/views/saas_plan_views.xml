@@ -1,0 +1,48 @@
+<!-- plan_limits/views/saas_plan_views.xml -->
+<odoo>
+  <record id="view_saas_plan_form" model="ir.ui.view">
+    <field name="name">saas.plan.form</field>
+    <field name="model">saas.plan</field>
+    <field name="arch" type="xml">
+      <form string="Plano SaaS">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="price_monthly"/>
+          </group>
+          <group string="Limites">
+            <field name="max_users"/>
+            <field name="max_storage_mb"/>
+            <field name="max_invoices_month"/>
+          </group>
+          <group string="Módulos permitidos">
+            <field name="allowed_module_names"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_saas_plan_tree" model="ir.ui.view">
+    <field name="name">saas.plan.tree</field>
+    <field name="model">saas.plan</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="price_monthly"/>
+        <field name="max_users"/>
+        <field name="max_storage_mb"/>
+        <field name="max_invoices_month"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_saas_plan" model="ir.actions.act_window">
+    <field name="name">Planos SaaS</field>
+    <field name="res_model">saas.plan</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_saas_root" name="SaaS"/>
+  <menuitem id="menu_saas_plan" name="Planos" parent="menu_saas_root" action="action_saas_plan"/>
+</odoo>

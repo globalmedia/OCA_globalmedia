@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_move_form_inherit_efibank" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.efibank</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button name="action_efibank_generate_pix"
+                        type="object"
+                        string="Gerar PIX (Efíbank)"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('move_type','!=','out_invoice'), ('state','!=','posted')]}"/>
+
+                <button name="action_efibank_generate_boleto"
+                        type="object"
+                        string="Gerar Boleto (Efíbank)"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('move_type','!=','out_invoice'), ('state','!=','posted')]}"/>
+
+                <button name="action_efibank_create_or_open_payment"
+                        type="object"
+                        string="Abrir Pagamento Efíbank"
+                        attrs="{'invisible': [('move_type','!=','out_invoice')]}"/>
+            </header>
+
+            <sheet position="after">
+                <notebook>
+                    <page string="Efíbank">
+                        <group>
+                            <label string="Use os botões acima para gerar PIX/Boletos ou abrir o pagamento Efíbank."/>
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,97 @@
+<odoo>
+    <!-- Ação e menu -->
+    <record id="action_efibank_payment" model="ir.actions.act_window">
+        <field name="name">Pagamentos Efíbank</field>
+        <field name="res_model">efi.payment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_efibank_root"
+              name="Efíbank"
+              parent="account.menu_finance"
+              sequence="90"/>
+
+    <menuitem id="menu_efibank_payment"
+              name="Pagamentos"
+              parent="menu_efibank_root"
+              action="action_efibank_payment"
+              sequence="10"/>
+
+    <!-- Tree view -->
+    <record id="view_efibank_payment_tree" model="ir.ui.view">
+        <field name="name">efibank.payment.tree</field>
+        <field name="model">efibank.payment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="move_id"/>
+                <field name="partner_id"/>
+                <field name="amount"/>
+                <field name="currency_id"/>
+                <field name="state"/>
+                <field name="txid"/>
+                <field name="boleto_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view com botões -->
+    <record id="view_efibank_payment_form" model="ir.ui.view">
+        <field name="name">efibank.payment.form</field>
+        <field name="model">efibank.payment</field>
+        <field name="arch" type="xml">
+            <form string="Pagamento Efíbank">
+                <header>
+                    <button name="create_pix_payment"
+                            type="object"
+                            string="Gerar PIX"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('state','!=','draft')]}"/>
+
+                    <button name="create_boleto_payment"
+                            type="object"
+                            string="Gerar Boleto"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('state','!=','draft')]}"/>
+
+                    <button name="mark_as_paid"
+                            type="object"
+                            string="Marcar como Pago (manual)"
+                            attrs="{'invisible': [('state','!=','pending')]}"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,pending,paid,cancelled"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="move_id"/>
+                            <field name="partner_id" readonly="1"/>
+                            <field name="amount" readonly="1"/>
+                            <field name="currency_id" readonly="1"/>
+                        </group>
+                        <group string="Identificação">
+                            <field name="txid" readonly="1"/>
+                            <field name="last_error" widget="text" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="PIX">
+                            <group>
+                                <field name="pix_qr_code" widget="text" readonly="1"/>
+                                <field name="pix_qr_image" filename="pix_qr.png" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Boleto">
+                            <group>
+                                <field name="boleto_url" readonly="1"/>
+                                <field name="boleto_number" readonly="1"/>
+                                <field name="boleto_pdf" filename="boleto.pdf" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

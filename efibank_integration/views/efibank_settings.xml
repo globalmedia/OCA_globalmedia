@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_efibank_settings" model="ir.ui.view">
+        <field name="name">efibank.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.view_res_config_settings"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='settings']" position="inside">
+                <div class="app_settings_block" data-string="Efíbank">
+                    <h2>Efíbank Integração</h2>
+                    <group>
+                        <field name="efibank_client_id"/>
+                        <field name="efibank_client_secret"/>
+                        <field name="efibank_pix_key"/>
+                        <field name="efibank_base_url"/>
+                        <field name="efibank_oauth_path"/>
+                        <field name="efibank_webhook_secret"/>
+                    </group>
+                    <div class="text-muted">
+                        <p>Configure Client ID/Secret e a Chave PIX cadastrada no Efíbank.</p>
+                        <p>Defina o Webhook Secret e use o mesmo valor no painel da Efí para callbacks.</p>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
